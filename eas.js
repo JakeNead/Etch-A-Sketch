@@ -6,3 +6,12 @@ for (let i = 0; i < 256; i++) {
     div.classList.add('pixel')
     gridContainer.appendChild(div);
   }
+
+const pixel = document.querySelectorAll('.pixel')
+pixel.forEach((pixel) => {
+  pixel.addEventListener('mouseover', () => {
+    pixel.style.backgroundColor = 'black'
+  })
+})
+
+// add grid size change buttons
