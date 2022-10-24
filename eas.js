@@ -1,10 +1,10 @@
 const gridContainer = document.querySelector('#gridContainer')
 let divNumber = 256;
+createSketchSquares(divNumber)
+black()
 
-function createSketchSquare () {
-  while (gridContainer.firstChild){
-    gridContainer.removeChild(gridContainer.firstChild)
-  }
+function createSketchSquares (divNumber) {
+  removeSketchGrid()
   for (let i = 0; i < (divNumber); i++) {
     const div = document.createElement('div')
     div.classList.add('pixel')
@@ -12,10 +12,11 @@ function createSketchSquare () {
   }
   black()
 }
-
-createSketchSquare()
-black()
-
+function removeSketchGrid () {
+  while (gridContainer.firstChild){
+    gridContainer.removeChild(gridContainer.firstChild)
+  }
+}
 function black() {
   const pixel = document.querySelectorAll('.pixel')
   pixel.forEach((pixel) => {
@@ -36,5 +37,5 @@ function selectGridSize () {
       alert ('Try again!')
       selectGridSize()
     } 
-    createSketchSquare(gridSize ** 2)
+    createSketchSquares(gridSize ** 2)
 }
