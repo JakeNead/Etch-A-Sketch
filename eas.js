@@ -2,15 +2,15 @@ const gridContainer = document.querySelector('#gridContainer')
 let divNumber = 256;
 
 function createSketchSquare () {
-  // while (gridContainer.firstChild){
-  //   gridContainer.removeChild(gridContainer.firstChild)
-  // }
+  while (gridContainer.firstChild){
+    gridContainer.removeChild(gridContainer.firstChild)
+  }
   for (let i = 0; i < (divNumber); i++) {
     const div = document.createElement('div')
     div.classList.add('pixel')
     gridContainer.appendChild(div);
   }
-  console.log()
+  black()
 }
 
 createSketchSquare()
@@ -36,5 +36,5 @@ function selectGridSize () {
       alert ('Try again!')
       selectGridSize()
     } 
-    divNumber = (gridSize ** 2)
+    createSketchSquare(gridSize ** 2)
 }
