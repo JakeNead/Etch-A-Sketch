@@ -1,28 +1,43 @@
 const gridContainer = document.querySelector('#gridContainer')
-let divNumber = 256;
-createSketchSquares(divNumber)
-black()
+
+createSketchSquares(16)
 
 function createSketchSquares (divNumber) {
   removeSketchGrid()
-  for (let i = 0; i < (divNumber); i++) {
-    const div = document.createElement('div')
-    div.classList.add('pixel')
-    gridContainer.appendChild(div);
+  for (let i = 0; i < divNumber; i++) {
+    const row = document.createElement('div')
+    row.className = 'row'
+    gridContainer.appendChild(row);
+      for (let j = 0; j < divNumber; j++) {
+        const col = document.createElement('div')
+        col.className = 'col'
+        row.appendChild(col)
+      }
   }
-  black()
+ black()
 }
+
 function removeSketchGrid () {
   while (gridContainer.firstChild){
     gridContainer.removeChild(gridContainer.firstChild)
   }
 }
+const col = document.querySelectorAll('.col')
+
 function black() {
-  const pixel = document.querySelectorAll('.pixel')
-  pixel.forEach((pixel) => {
-    pixel.addEventListener('mouseover', () => pixel.style.backgroundColor = 'black')
+  const col = document.querySelectorAll('.col')
+  col.forEach((col) => {
+    col.addEventListener('mouseover', () => col.style.backgroundColor = 'black')
   })
 }
+//erase button still not working
+function erase () {
+  const erase = document.getElementsByClassName('erase')
+  const col = document.querySelectorAll('.col')
+  col.forEach((col) => {
+    erase.addEventListener('click', () => col.style.backgroundColor = 'white')
+    })
+  }
 
 const resize = document.getElementById('resize')
 resize.addEventListener('click', () => {
@@ -37,5 +52,5 @@ function selectGridSize () {
       alert ('Try again!')
       selectGridSize()
     } 
-    createSketchSquares(gridSize ** 2)
+    createSketchSquares(gridSize)
 }
