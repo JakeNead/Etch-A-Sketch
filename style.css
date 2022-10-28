@@ -1,29 +1,63 @@
 body {
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     background-color: green;
 }
 
+#headerCanvasButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 h1 {
     background:  lightgrey;
+    font-size: 40px;
     padding: 20px;
-    text-align: center;
     border-radius: 10px;
 }
 
 #gridContainer {
     display: flex;
     flex-wrap: wrap;
-    border: solid 2px black;
-    border-radius: 2px;
-    height: 320px;
-    width: 320px;
+    border: solid 1px black;
+    height: fit-content;
+    width: fit-content;
+  
 }
 
-.pixel {
-    display: flex;
+.row 
+.col {
     background-color: white;
-    padding: 10px;
-    align-items: stretch;    
+    height: 2vw;
+    width: 2vw;
+    border: solid black 1px;
 }
+
+/* .row {
+    display: flex;
+    flex-grow: 1;
+}
+
+.col {
+    background-color: white;
+    flex-shrink: 1;
+    border: solid black 1px;
+    height: 5px;
+    width: 5px; */
+
+
+#buttonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    font-size: 18px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
