@@ -1,6 +1,6 @@
 body {
     display: flex;
-    min-height: 100vh;
+    min-height: 98vh;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -15,40 +15,32 @@ body {
 
 h1 {
     background:  lightgrey;
-    font-size: 40px;
     padding: 20px;
     border-radius: 10px;
 }
 
 #gridContainer {
+  display:inline-flex;
+  flex-wrap:wrap;
+  flex-direction:column;
+  width:40vw;
+  height:40vw;
+  min-width:400px;
+  min-height:400px;
+  background-color:white;
+  box-shadow:0px 0px 12px 3px rgb(37, 37, 37);
+  margin:auto;
+}
+
+.row {
     display: flex;
-    flex-wrap: wrap;
-    border: solid 1px black;
-    height: fit-content;
-    width: fit-content;
+    flex: 2;
   
 }
-
-.row 
 .col {
-    background-color: white;
-    height: 2vw;
-    width: 2vw;
-    border: solid black 1px;
-}
-
-/* .row {
     display: flex;
-    flex-grow: 1;
+    flex: auto;
 }
-
-.col {
-    background-color: white;
-    flex-shrink: 1;
-    border: solid black 1px;
-    height: 5px;
-    width: 5px; */
-
 
 #buttonContainer {
     display: flex;
@@ -56,7 +48,6 @@ h1 {
 }
 
 button {
-    font-size: 18px;
     margin: 10px;
     border-radius: 5px;
 }
