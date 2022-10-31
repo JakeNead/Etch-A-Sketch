@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: green;
+    background-color: grey;
 }
 
 #headerCanvasButtons {
@@ -14,11 +14,22 @@ body {
 }
 
 h1 {
-    background:  lightgrey;
+    background:  rgb(232, 232, 232);
     padding: 20px;
     border-radius: 10px;
 }
-
+#device {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    width: 55vw;
+    height: 55vw;
+    min-width: 550px;
+    min-height: 550px;
+    box-shadow: 10px;
+    background-color: red;;
+}
 #gridContainer {
   display:inline-flex;
   flex-wrap:wrap;
@@ -29,7 +40,7 @@ h1 {
   min-height:400px;
   background-color:white;
   box-shadow:0px 0px 12px 3px rgb(37, 37, 37);
-  margin:auto;
+  margin: 20px;
 }
 
 .row {
