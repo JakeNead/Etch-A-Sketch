@@ -1,6 +1,7 @@
 const gridContainer = document.querySelector('#gridContainer')
-
-createSketchSquares(16)
+let color = 'black'
+let gridSize = 50
+createSketchSquares(gridSize)
 
 function createSketchSquares (divNumber) {
   removeSketchGrid()
@@ -14,7 +15,7 @@ function createSketchSquares (divNumber) {
         row.appendChild(col)
       }
   }
- black()
+  marker(color)
 }
 
 function removeSketchGrid () {
@@ -24,20 +25,40 @@ function removeSketchGrid () {
 }
 const col = document.querySelectorAll('.col')
 
-function black() {
+function marker(color) {
   const col = document.querySelectorAll('.col')
   col.forEach((col) => {
-    col.addEventListener('mouseover', () => col.style.backgroundColor = 'black')
-  })
-}
-//erase button still not working
-function erase () {
-  const erase = document.getElementsByClassName('erase')
-  const col = document.querySelectorAll('.col')
-  col.forEach((col) => {
-    erase.addEventListener('click', () => col.style.backgroundColor = 'white')
-    })
+    if (color === 'black') {
+      col.addEventListener('mouseover', () => col.style.backgroundColor = 'black')
+  } else if (color === 'rainbow') {
+      col.addEventListener('mouseover', () => col.style.backgroundColor = 'red')
+  } else if (color === 'erase'){
+    return
   }
+  })
+  }
+// blackButton not working yet
+const blackBtn = document.getElementById('blackButton')
+blackBtn.addEventListener('click', () => {
+  color = 'black'
+  marker(color)
+})
+
+
+const rainbow = document.getElementById('rainbow')
+rainbow.addEventListener('click', () => {
+  color = 'rainbow'
+  marker(color)
+})
+
+
+//reset does not apply the current marker setting yet
+
+const reset = document.getElementById('reset')
+reset.addEventListener('click', () => {
+  createSketchSquares(50)
+})
+    
 
 const resize = document.getElementById('resize')
 resize.addEventListener('click', () => {
