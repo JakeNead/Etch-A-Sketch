@@ -53,7 +53,7 @@ function randomColor () {
 const eraseBtn = document.getElementById('erase')
 eraseBtn.addEventListener('click', () => {
   color = 'erase'
-  marker('white')
+  marker('rgb(206, 206, 206)')
 })
 
 const reset = document.getElementById('reset')
