@@ -15,7 +15,7 @@ function createSketchSquares (divNumber) {
         row.appendChild(col)
       }
   }
-  marker(color)
+  marker('black')
 }
 
 function removeSketchGrid () {
@@ -28,38 +28,39 @@ const col = document.querySelectorAll('.col')
 function marker(color) {
   const col = document.querySelectorAll('.col')
   col.forEach((col) => {
-    if (color === 'black') {
-      col.addEventListener('mouseover', () => col.style.backgroundColor = 'black')
-  } else if (color === 'rainbow') {
-      col.addEventListener('mouseover', () => col.style.backgroundColor = 'red')
-  } else if (color === 'erase'){
-    return
-  }
+    col.addEventListener('mouseover', () => col.style.backgroundColor = color)
   })
   }
-// blackButton not working yet
+
 const blackBtn = document.getElementById('blackButton')
 blackBtn.addEventListener('click', () => {
-  color = 'black'
-  marker(color)
+  marker('black')
 })
 
-
-const rainbow = document.getElementById('rainbow')
-rainbow.addEventListener('click', () => {
-  color = 'rainbow'
-  marker(color)
+const rainbowBtn = document.getElementById('rainbow')
+rainbowBtn.addEventListener('click', () => {
+  randomColor()
 })
 
+function randomColor () {
+  let rainbowColors = ['red', 'orange', 'yellow','green', 'blue', 'indigo', 'violet']
+  const col = document.querySelectorAll('.col')
+  col.forEach((col) => {
+    col.addEventListener('mouseover', () => col.style.backgroundColor = rainbowColors[Math.floor(Math.random()*7)])
+  }
+)}
 
-//reset does not apply the current marker setting yet
+const eraseBtn = document.getElementById('erase')
+eraseBtn.addEventListener('click', () => {
+  color = 'erase'
+  marker('white')
+})
 
 const reset = document.getElementById('reset')
 reset.addEventListener('click', () => {
   createSketchSquares(50)
 })
     
-
 const resize = document.getElementById('resize')
 resize.addEventListener('click', () => {
   selectGridSize()
