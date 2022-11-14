@@ -1,2 +1,4 @@
 # Etch-A-Sketch
-Basic Etch-A-Sketch project
+This is my Etch-A-Sketch project. 
+
+[Check it out here!](https://jakenead.github.io/Etch-A-Sketch/)
